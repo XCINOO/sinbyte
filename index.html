@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XCINOO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg1:#0d0d0d; --bg2:#1a1a1a; --bg3:#400000;
+      --txt:#ffffff; --muted:#dddddd; --accent:#ff4d4d; --glass:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.18); --ring:rgba(255,77,77,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family:'Vazirmatn',sans-serif; font-weight:300; color:var(--txt); margin:0;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:1.5rem 1rem 3rem;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+      background-size:200% 200%; animation:bgShift 18s ease-in-out infinite;
+      position:relative; overflow:hidden;
+    }
+    @keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    /* لوگو در بک‌گراند */
+    body::before{
+      content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      width:600px; height:280px;
+      background:url("image_2025-09-07_030237791.png") no-repeat center/contain;
+      opacity:.12; filter:blur(2px) drop-shadow(0 0 20px rgba(255,60,60,.6));
+      animation:glow 6s ease-in-out infinite; z-index:0;
+    }
+    @keyframes glow{
+      0%,100%{opacity:.12;filter:blur(2px) drop-shadow(0 0 20px rgba(255,60,60,.6))}
+      50%{opacity:.25;filter:blur(3px) drop-shadow(0 0 40px rgba(255,80,80,.9))}
+    }
+
+    /* ===== کارت‌های آیکن ===== */
+    .links{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.2rem; z-index:1; width:100%; max-width:800px}
+
+    .card{
+      --size:78px;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:.7rem; padding:1rem; min-height:200px; text-decoration:none; color:var(--txt);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--border); border-radius:18px; position:relative; overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,.35);
+      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+      isolation:isolate;
+    }
+    .card::before{
+      content:""; position:absolute; inset:0; background:
+        radial-gradient(120px 120px at 20% 10%, rgba(255,77,77,.16), transparent 60%),
+        linear-gradient(90deg, transparent, rgba(255,77,77,.12), transparent);
+      transform:translateX(-120%);
+      transition:transform .6s ease; z-index:-1;
+    }
+    .card:hover{transform:translateY(-6px) scale(1.01); border-color:rgba(255,77,77,.45);
+      box-shadow:0 14px 36px rgba(0,0,0,.5)
+    }
+    .card:hover::before{transform:translateX(120%)}
+
+    .badge{
+      width:var(--size); height:var(--size); border-radius:50%; display:grid; place-items:center;
+      background:rgba(255,255,255,.04); border:1px solid var(--border);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), 0 0 0 0 var(--ring);
+      transition:box-shadow .35s ease, transform .35s ease;
+    }
+    .card:hover .badge{box-shadow:inset 0 0 0 1px rgba(255,255,255,.06), 0 0 0 10px var(--ring); transform:scale(1.06)}
+
+    .badge svg{width:42px; height:42px; opacity:.92; transition:transform .35s ease, filter .35s ease}
+    .card:hover .badge svg{transform:scale(1.07)}
+
+    .label{font-size:1.05rem; font-weight:700; letter-spacing:.2px}
+    .sub{font-size:.9rem; color:var(--muted); opacity:.95}
+
+    footer{margin-top:2rem; font-size:1rem; color:var(--muted); z-index:1}
+    .designer{font-family:'Orbitron', sans-serif; color:var(--muted); text-decoration:none; transition:.35s ease}
+    .designer:hover{color:#fff; text-shadow:0 0 12px rgba(255,77,77,.8)}
+  </style>
+</head>
+<body>
+
+  <div class="links">
+    <!-- TELEGRAM -->
+    <a class="card" href="https://t.me/Sinbytte">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.6 4.2L2.8 11.4c-.9.35-.87 1.63.05 1.93l4.68 1.55c.35.12.73.05 1.02-.18l6.63-5.2c.24-.19.55.12.36.36l-5.2 6.63c-.23.29-.3.67-.18 1.02l1.55 4.68c.3.92 1.58.94 1.93.05l7.2-18.8c.29-.75-.46-1.5-1.21-1.21Z"/>
+        </svg>
+      </div>
+      <div class="label">تلگرام</div>
+      <div class="sub">@Sinbytte</div>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a class="card" href="https://www.instagram.com/sinbyte">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4.2"/>
+          <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="label">اینستاگرام</div>
+      <div class="sub">@sinbyte</div>
+    </a>
+
+    <!-- VPN SHOP -->
+    <a class="card" href="https://t.me/xcinoo">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l7 3v6c0 5-3.5 9.5-7 11-3.5-1.5-7-6-7-11V5l7-3Z"/>
+          <path d="M12 10v4"/>
+          <circle cx="12" cy="8.5" r=".75" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="label">خرید سرور وی‌پی‌ان</div>
+      <div class="sub">@xcinoo</div>
+    </a>
+  </div>
+
+  <footer>
+    Designed by <a href="https://www.instagram.com/xcinoo/?utm_source=ig_web_button_share_sheet" class="designer">xcinoo</a>
+  </footer>
+
+</body>
+</html>
